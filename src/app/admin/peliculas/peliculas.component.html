@@ -1,0 +1,41 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+               
+                <input #input (keyup)="updateFilter($event)" type="text" class="form-control"
+                    placeholder="Buscar pelicula...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h1>Peliculas</h1>
+  
+    <table class="table table-bordered">
+      <tr>
+        <th>Imagen</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Year</th>
+        <th width="220px">Opsion</th>
+      </tr>
+      <tr *ngFor="let pelis of peliculas">
+        <td>
+            <img [src]="pelis.Poster" width="50" height="60"/>
+        </td>
+      
+        <td>{{ pelis.Title }}</td>
+        <td>{{ pelis.Type }}</td>
+        <td>{{ pelis.Year }}</td>
+        <td>
+          <a href="#" (click)="adicionarFavorito(pelis.imdbID)" class="btn btn-info">Favorito</a>
+          <button type="button" (click)="adicionarFavorito(pelis.imdbID)" class="btn btn-danger">Favorito</button>
+        </td>
+      </tr>
+    </table>
+ </div>
